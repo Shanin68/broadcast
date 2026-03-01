@@ -4,6 +4,7 @@ import {
 } from "@/utils/broadcast-manager";
 import { useEffect, useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function CustomReceiverScreen() {
   const [receivedMessage, setReceivedMessage] = useState<string | null>(null);
@@ -19,7 +20,7 @@ export default function CustomReceiverScreen() {
   }, []);
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Text style={styles.title}>Custom Broadcast Receiver</Text>
 
       {/* receiver status */}
@@ -38,7 +39,7 @@ export default function CustomReceiverScreen() {
           </>
         )}
       </View>
-    </View>
+    </SafeAreaView>
   );
 }
 

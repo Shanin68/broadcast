@@ -7,8 +7,8 @@ import {
   Text,
   TextInput,
   TouchableOpacity,
-  View,
 } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function BroadcastInputScreen() {
   const router = useRouter();
@@ -31,7 +31,7 @@ export default function BroadcastInputScreen() {
   };
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Text style={styles.title}>Custom Broadcast</Text>
       <Text style={styles.label}>Enter a message to broadcast:</Text>
 
@@ -48,7 +48,7 @@ export default function BroadcastInputScreen() {
       <TouchableOpacity style={styles.button} onPress={handleSend}>
         <Text style={styles.buttonText}>Send Broadcast</Text>
       </TouchableOpacity>
-    </View>
+    </SafeAreaView>
   );
 }
 

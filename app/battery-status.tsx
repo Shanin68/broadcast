@@ -1,6 +1,7 @@
 import * as Battery from "expo-battery";
 import { useEffect, useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function BatteryStatusScreen() {
   const [level, setLevel] = useState<number | null>(null);
@@ -44,7 +45,7 @@ export default function BatteryStatusScreen() {
   const percentage = level !== null ? Math.round(level * 100) : "--";
 
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Text style={styles.title}>Battery Broadcast Receiver</Text>
 
       {/* battery info */}
@@ -56,7 +57,7 @@ export default function BatteryStatusScreen() {
       <Text style={styles.hint}>
         Battery level updates are received via system broadcast.
       </Text>
-    </View>
+    </SafeAreaView>
   );
 }
 
