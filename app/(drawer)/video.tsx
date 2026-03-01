@@ -10,9 +10,8 @@ import {
 
 const { width: SCREEN_W } = Dimensions.get("window");
 
-// sample video
-const VIDEO_URI =
-  "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4";
+// local video file
+const VIDEO_SOURCE = require("@/assets/video/audio.tsx - Ass_02 - Visual Studio Code 2026-03-01 14-10-39.mp4");
 
 export default function VideoScreen() {
   const videoRef = useRef<Video>(null);
@@ -35,7 +34,7 @@ export default function VideoScreen() {
       {/* video player */}
       <Video
         ref={videoRef}
-        source={{ uri: VIDEO_URI }}
+        source={VIDEO_SOURCE}
         style={styles.video}
         resizeMode={ResizeMode.CONTAIN}
         useNativeControls

@@ -2,9 +2,8 @@ import { Audio } from "expo-av";
 import { useRef, useState } from "react";
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
-// sample audio
-const AUDIO_URI =
-  "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3";
+// local audio file
+const AUDIO_SOURCE = require("@/assets/mp3/Piki - Momo Island (freetouse.com).mp3");
 
 export default function AudioScreen() {
   const soundRef = useRef<Audio.Sound | null>(null);
@@ -17,7 +16,7 @@ export default function AudioScreen() {
   const loadAudio = async () => {
     if (soundRef.current) return;
     const { sound } = await Audio.Sound.createAsync(
-      { uri: AUDIO_URI },
+      AUDIO_SOURCE,
       { shouldPlay: false },
       onPlaybackUpdate,
     );
@@ -64,7 +63,7 @@ export default function AudioScreen() {
 
       {/* playback progress */}
       <View style={styles.card}>
-        <Text style={styles.trackName}>SoundHelix Song 1</Text>
+        <Text style={styles.trackName}>Piki - Momo Island</Text>
         <Text style={styles.time}>
           {formatTime(position)} / {formatTime(duration)}
         </Text>
